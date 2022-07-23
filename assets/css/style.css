@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap");
 
 * {
   margin: 0;
@@ -6,31 +6,416 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   /* border: 1px solid red; */
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  width: 100%;
-  color: var(--white);
+  scroll-padding-top: 100px; /* 100px es el tamaño del header*/
 }
 
 :root {
   --black: #131415;
-  --purple: #360033;
   --yelow: #ffc200;
-  --white: #fff;
   --gray: #2d3640;
-  --bold: 900;
-  --medium: 700;
+  --bold: 700;
+  --big: 900;
+  --medium: 500;
   --regular: 400;
   --thin: 300;
+  --small: 100;
+}
+
+body {
+  width: 100%;
+  color: white;
+  /* background: url(../img/fondo2.jpeg) no-repeat center; */
 }
 
 .upper {
   text-transform: uppercase;
+}
+
+/* Secciones Gral. */
+.section-container {
+  background-color: var(--black);
+}
+
+.section-container2 {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 70px 0px;
+  width: 95%;
+  max-width: 1300px;
+}
+
+button {
+  background-color: var(--yelow);
+  border: 0x solid var(--black);
+  outline: none;
+  width: 180px;
+  height: 40px;
+  color: white;
+  font-weight: var(--regular);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+
+button:hover {
+  background-color: #c79900;
+  transition: all 0.4s linear;
+}
+
+.section-title {
+  font-weight: var(--bold);
+  font-size: 32px;
+}
+
+.section-p {
+  font-size: 14px;
+  font-weight: var(--regular);
+}
+
+.section-p-small {
+  font-size: 12px;
+  font-weight: var(--small);
+}
+
+/* Header */
+.header-container {
+  position: sticky;
+  top: 0%;
+  z-index: 9999;
+}
+
+.header {
+  margin: 0 auto; /* Para centrar la seccion */
+  max-width: 1300px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 80px 0px 50px;
+}
+
+.logo-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 60%;
+}
+
+.navbar,
+.navbar-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-list {
+  gap: 50px;
+}
+
+.navbar i {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+#toggle-menu {
+  display: none;
+}
+
+.navbar a {
+  color: white;
+  font-size: 16px;
+}
+
+/* Boton de Navbar */
+.navbar-list li:last-child > a {
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 8px 40px;
+  border-radius: 3px;
+  transition: all 0.3s linear;
+}
+
+.navbar-list li:last-child > a:hover {
+  background-color: var(--yelow);
+  color: var(--gray);
+  transition: all 0.3s linear;
+  font-weight: 700;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .header {
+    padding: 0px 50 px 0px 10px;
+  }
+
+  .navbar i {
+    display: block;
+  }
+
+  .navbar-list {
+    position: absolute;
+    background-color: var(--black);
+    flex-direction: column;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: none;
+    z-index: 9999;
+  }
+
+  /* Para el hermano */
+  #toggle-menu:checked + .navbar-list {
+    display: flex;
+  }
+}
+
+/* Hero */
+#hero {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 70px 50px;
+  /* background: url(../img/fondo2.jpeg) no-repeat center; */
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  gap: 40px;
+}
+
+.text-container {
+  max-width: max(40%, 300px);
+}
+
+.text-container h1 {
+  font-weight: var(--bold);
+  font-size: 45px;
+  line-height: 45px;
+}
+
+.text-container p {
+  font-size: 15px;
+  font-weight: var(--thin);
+}
+
+.hero-img {
+  background: url(../img/harry.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 250px;
+  width: 30%;
+  height: 350px;
+  border-radius: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 778px) {
+  .hero-img {
+    display: none;
+  }
+
+  .description-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* About Us */
+#about-us {
+  gap: 15%;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  background-image: url(../img/fondo1.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.about-content {
+  height: 250px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-cards-container {
+  display: flex;
+  gap: 30px;
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray);
+  height: 60px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.about-card span {
+  font-weight: var(--bold);
+  font-size: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #about-us {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Libros */
+#libros {
+  flex-direction: column;
+  gap: max(120px, 10%);
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 25%;
+  width: 100%;
+}
+
+.libros-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 75%;
+  gap: 90px;
+}
+
+.libro-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--gray);
+  text-align: center;
+  width: 250px;
+  height: 160px;
+  position: relative;
+  padding-top: 50px;
+}
+
+.libro-card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  font-weight: var(--thin);
+  color: var(--gray);
+  position: absolute;
+  top: -50px;
+  background-size: cover;
+}
+
+.libro-card:first-child .libro-card-img {
+  background-image: url(../img/libro-1.jpeg);
+}
+
+.libro-card:nth-child(2) .libro-card-img {
+  background-image: url(../img/libro-2.jpeg);
+}
+
+.libro-card:nth-child(3) .libro-card-img {
+  background-image: url(../img/libro-3.webp);
+}
+
+.libro-card:nth-child(4) .libro-card-img {
+  background-image: url(../img/libro-4.png);
+}
+
+.libro-card:nth-child(5) .libro-card-img {
+  background-image: url(../img/libro-5.webp);
+}
+
+.libro-card:nth-child(6) .libro-card-img {
+  background-image: url(../img/libro-6.png);
+}
+
+.libro-card:nth-child(7) .libro-card-img {
+  background-image: url(../img/libro-7.webp);
+}
+
+.libro-card h3 {
+  font-weight: var(--bold);
+  font-size: 20px;
+}
+
+.responsive-btn {
+  display: none;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .libros-cards-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-container button {
+    display: none;
+  }
+  .responsive-btn {
+    display: block;
+  }
+
+  .libro-card {
+    width: min(350px, 90%);
+  }
 }
